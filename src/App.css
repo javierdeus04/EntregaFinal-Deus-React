@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+.cartWideget {
+  position: relative; 
+  display: inline-block;
+}
+
+.cartNumber {
+  font-size: 0.5rem;
+  position: absolute; 
+  bottom: 0; 
+  right: -7px; 
+  background-color: red; 
+  color: white; 
+  padding: 1px 5px; 
+  border-radius: 50%;  
+}
+
+.navBarRight {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.box {
+  text-align: center;
+}
+
