@@ -18,14 +18,16 @@ function NavBar() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Inicio</Nav.Link>
+                        <Nav.Link href="/">Inicio</Nav.Link>
                         <Nav.Link href="#action2">Novedades</Nav.Link>
                         <NavDropdown title="Categorias" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">Videojuegos</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">
+                            <NavDropdown.Item href="/category/videojuegos">
+                                Videojuegos
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="/category/consolas">
                                 Consolas
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">
+                            <NavDropdown.Item href="/category/merchandising">
                                 Merchandising
                             </NavDropdown.Item>
                             <NavDropdown.Divider />
