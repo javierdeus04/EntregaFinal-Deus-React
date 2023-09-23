@@ -1,34 +1,54 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import Spinner from 'react-bootstrap/Spinner';
 import { ItemList } from "./ItemList";
-import data from "../data/items.json"
-
+import { getFirestore, getDocs, collection } from "firebase/firestore";
+import Container from "react-bootstrap/esm/Container";
 
 export const ItemListContainer = (props) => {
-
-    const [items, setItems] = useState([])
-
+    const [items, setItems] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const { id } = useParams();
 
-    
+
     useEffect(() => {
-        const promise = new Promise((resolve, reject) => {
-            setTimeout(() => resolve(data), 2000);
-        });
-        promise.then(data => {
-            if (!id) {setItems(data);
+
+        const db = getFirestore();
+        const refCollection = collection(db, "items");
+        setIsLoading(true);
+
+        getDocs(refCollection).then((snapshot) => {
+            if (snapshot.size === 0) {
+                setIsLoading(true);
             } else {
-                const itemsFiltered = data.filter(
-                    (item) => item.category === id
-                );
-                setItems(itemsFiltered)
+                const data = snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+
+                if (!id) {
+                    setItems(data);
+                } else {
+                    const itemsFiltered = data.filter(item => item.categoryId === id);
+                    setItems(itemsFiltered);
+                }
             }
-            });
-    }, []);
+            setIsLoading(false);
+        });
+    }, [id]);
 
     return (
-        <div className="box"><ItemList items={items} /></div>
-    )
-}
+        <Container>
+            <h1>Productos</h1>
+            <div className="box">
+                {isLoading ? (
+                    <Spinner animation="border" role="status">
+                        <span className="sr-only"></span>
+                    </Spinner>
+                ) : (
+                    <ItemList items={items} />
+                )}
+            </div>
+        </Container>
+    );
+};

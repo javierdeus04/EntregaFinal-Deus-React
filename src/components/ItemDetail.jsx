@@ -1,16 +1,22 @@
+import { useContext } from "react"
 import { ItemCount } from "./ItemCount"
+import { CartContext } from "../contexts/CartContext"
 
 export const ItemDetail = ({ item }) => {
+    const {addItem} = useContext(CartContext);
+    const onAdd = count => {addItem(item, count)};
     return (
         <div className="itemDetail">
             <div>
-                <h1>{item.title}</h1>
-                <h5>{item.category.toUpperCase()}</h5>
-                <img style={{ height: '400px', width: '400px' }} src={item.imageUrl} />
+                <h2>{item.name}</h2>
+                <h4>{item.categoryId}</h4>
+                <img style={{ height: '300px', width: '400px' }} src={item.img} alt=""/>
             </div>
             <div>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ratione, temporibus non eum quia in, inventore suscipit excepturi quo nisi corrupti sed accusantium, eveniet tempora a consequuntur fugit dolor laboriosam.</div>
-                <ItemCount />
+                <div>{item.description}</div>
+                <h3>${item.price}</h3>
+                <span>Stock: {item.stock}</span>
+                <ItemCount stock={item.stock} onAdd={onAdd}/>
             </div>
         </div>
     )

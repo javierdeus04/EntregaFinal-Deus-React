@@ -1,3 +1,6 @@
+# E-Commerce "Domino Games" por Javier Deus - Proyecto final curso React JS Coderhouse 2023
+Este proyecto fue inciiado con la intencipon de implementar una tienda digital como forma de expandir el modelo de negocio de un emprendimiento ya establecido en un lugar físico. Par sus desarrollo se siguió lo visto durante el curso para generar la base de un proyecto que seguirá en desarrollo enfocándose en una experiencia dinámica para el usuario. Como dependencias extras se agregó boostrap, iconos de boostrap, toastify y sweet alert 2, con el fin de mejorar el diseño y el dinamismo del sitio.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

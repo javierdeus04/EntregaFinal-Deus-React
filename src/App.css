@@ -39,6 +39,7 @@
 }
 
 .cartWideget {
+  color: black;
   position: relative;
   display: inline-block;
 }
@@ -67,6 +68,8 @@
   justify-content: center;
   align-items: center;
   margin: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
   gap: 20px;
 }
 
@@ -110,4 +113,9 @@
 .itemDetailTwo {
   padding: 50px;
   grid-column: 2;
+}
+
+.table {
+  text-align: center;
+  vertical-align: middle !important;
 }

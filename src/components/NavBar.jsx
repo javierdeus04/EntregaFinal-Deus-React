@@ -5,12 +5,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { CartWideget } from './CartWidget';
+import { Link } from "react-router-dom";
 
 function NavBar() {
     return (
         <Navbar bg="primary" expand="lg">
             <Container>
-                <Navbar.Brand href="#">Domino Games</Navbar.Brand>
+                <Navbar.Brand as={Link} to="#">Domino Games</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -18,20 +19,20 @@ function NavBar() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="/">Inicio</Nav.Link>
-                        <Nav.Link href="#action2">Novedades</Nav.Link>
+                        <Nav.Link as={Link} to="/">Inicio</Nav.Link>
+                        <Nav.Link as={Link} to="#action2">Novedades</Nav.Link>
                         <NavDropdown title="Categorias" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="/category/videojuegos">
+                            <NavDropdown.Item as={Link} to="/categories/Videojuegos">
                                 Videojuegos
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="/category/consolas">
+                            <NavDropdown.Item as={Link} to="/categories/Consolas">
                                 Consolas
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="/category/merchandising">
+                            <NavDropdown.Item as={Link} to="/categories/Merchandising">
                                 Merchandising
                             </NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action5">
+                            <NavDropdown.Item as={Link} to="#action5">
                                 Servicio tecnico
                             </NavDropdown.Item>
                         </NavDropdown>
